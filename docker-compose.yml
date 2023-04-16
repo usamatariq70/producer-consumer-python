@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  rabbitmqServer:
+    container_name: rabbitmqServer
+    image: "rabbitmq:3.11-management"
+    hostname: "rabbitmq-host"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    networks:
+      - rabbitnetwork
+
+  producer:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    container_name: producer
+    ports:
+      - 80:80
+    networks:
+      - rabbitnetwork
+    restart: always
+
+  consumer:
+    container_name: consumer
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile
+    networks:
+      - rabbitnetwork
+    volumes:
+      - ./consumer/:/code
+    restart: always
+    
+
+networks:
+  rabbitnetwork:
+    driver: bridge
