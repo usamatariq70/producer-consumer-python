@@ -18,21 +18,21 @@ This project is a producer-consumer system that receives JSON messages from a pr
 
 
 ## Sample data
-```json
+```
 {
-	"device_id": str,
-	"client_id": str,
-	"created_at": str, # timestamp, e.g. '2023-02-07 14:56:49.386042'
-	"data": {
-		"license_id": str,
-		"preds": [
-			{
-				"image_frame": str, # base64 string
-				"prob": float,
-				"tags": str[]
-			},
-			...
-		] 
+  "device_id": str,
+  "client_id": str,
+  "created_at": str, # timestamp, e.g. '2023-02-07 14:56:49.386042'
+  "data": {
+       "license_id": str,
+       "preds": [
+	{
+		"image_frame": str, # base64 string
+		"prob": float,
+		"tags": str[]
+	},
+		...
+	       ] 
 	}
 }
 ```
