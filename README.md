@@ -63,3 +63,8 @@ To run the test_script.py, kindly install requests library using the below given
 ```bash
     pip install requests
 ```
+
+You are supposed to provide number of messages and number of preds to run the test script. Sample command is:
+```bash
+    python test_script.py --num_msgs 1000 --num_preds 2
+```
