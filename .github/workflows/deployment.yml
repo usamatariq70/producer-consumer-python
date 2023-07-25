@@ -15,6 +15,7 @@ jobs:
     
     - name: Install kubectl
       uses: azure/setup-kubectl@v1
+      id: install
       
     - run: ls
     - run: kubectl get pods
