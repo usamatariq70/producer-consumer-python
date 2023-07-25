@@ -12,4 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Install kubectl
+      uses: azure/setup-kubectl@v1
+      
     - run: ls
+    - run: kubectl get pods
