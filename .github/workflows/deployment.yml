@@ -15,8 +15,6 @@ jobs:
     
     - name: Install kubectl
       uses: azure/setup-kubectl@v3
-      with:
-        version: '<version>'
       id: install
       
     - run: ls
